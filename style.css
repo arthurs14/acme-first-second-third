@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+#lists {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#lists div {
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  padding: 1rem;
+}
