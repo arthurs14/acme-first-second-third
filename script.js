@@ -6,6 +6,14 @@ class List {
   }
 
   init() {
+    document.querySelector(this.divId).addEventListener('click', (ev) => {
+      if(ev.target.tagName === 'LI') {
+        console.log(ev.target.dataset.key);
+        const idx = [...ev.target.parentNode.children].indexOf(ev.target);
+        this.users[idx].selected = !this.users[idx].selected;
+        this.render();
+      }
+    });
     this.render();
   }
 
@@ -13,11 +21,12 @@ class List {
     const people = this.users.filter(user => {
       return user.list === this.list;
     });
+
     const html = `
       <h2>${this.list}</h2>
       <ul>
         ${
-          people.map(user => `<li>${user.name}</li>`).join('')
+          people.map(user => `<li data-key="${user.id}"${user.selected ? 'class="selected"' : ''}>${user.name}</li>`).join('')
         }
       </ul>
     `;
@@ -34,9 +43,13 @@ const users = [
 ];
 
 const firstList = new List('#first', 'First', users);
-const secondList = new List('#second', 'Second', users);
-const thirdList = new List('#third', 'Third', users);
-
 firstList.init();
+
+const secondList = new List('#second', 'Second', users);
 secondList.init();
+
+const thirdList = new List('#third', 'Third', users);
 thirdList.init();
+
+
+

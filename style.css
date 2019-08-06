@@ -26,3 +26,7 @@ ul {
 li {
   padding: 1rem;
 }
+
+.selected {
+  text-decoration: line-through;
+}
