@@ -28,5 +28,5 @@ li {
 }
 
 .selected {
-  text-decoration: line-through;
+  background-color: tomato;
 }

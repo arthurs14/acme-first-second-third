@@ -8,8 +8,7 @@ class List {
   init() {
     document.querySelector(this.divId).addEventListener('click', (ev) => {
       if(ev.target.tagName === 'LI') {
-        console.log(ev.target.dataset.key);
-        const idx = [...ev.target.parentNode.children].indexOf(ev.target);
+        const idx = ((ev.target.dataset.key*1) - 1);
         this.users[idx].selected = !this.users[idx].selected;
         this.render();
       }
@@ -33,7 +32,6 @@ class List {
     document.querySelector(this.divId).innerHTML = html;
   }
 }
-
 
 const users = [
   { id: 1, name: 'moe', list: 'First' },
